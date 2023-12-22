@@ -18,6 +18,7 @@ private String password="karru";
 private String url="jdbc:mysql://localhost:3306/studentdb";
 private String driver="com.mysql.cj.jdbc.Driver";
 Connection con;
+//establishing connection
 public void dbConnect() {
 	
 	//load the driver
@@ -36,6 +37,7 @@ public void dbConnect() {
 		e.printStackTrace();
 	}
 }
+//closing connection
 public void dbClose() {
 	try {
 		con.close();
@@ -45,6 +47,7 @@ public void dbClose() {
 		e.printStackTrace();
 	}
 }
+//inserting student
 public void insert(int id, String name, String city, String subject) {
 	// TODO Auto-generated method stub
 	dbConnect();
@@ -68,6 +71,7 @@ public void insert(int id, String name, String city, String subject) {
 	}
 dbClose();	
 }
+//getting students
 public List<Student> getAll() {
 	// TODO Auto-generated method stub
 	dbConnect();
@@ -98,6 +102,7 @@ public List<Student> getAll() {
 	return students;
 	
 }
+//checking id
 public int checkId(int id) {
 	dbConnect();
 	String sql="select * from student where id=?";
@@ -122,6 +127,7 @@ public int checkId(int id) {
 	
 	return status;
 }
+//deleting student
 public void deleteById(int id) {
 	// TODO Auto-generated method stub
 	dbConnect();
@@ -147,6 +153,7 @@ public void deleteById(int id) {
 	}
 	dbClose();
 }
+//updating student
 public void update(int id, String name, String city, String subject) {
 	// TODO Auto-generated method stub
 	String query="select * from student where id=?";
